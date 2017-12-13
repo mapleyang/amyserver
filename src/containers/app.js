@@ -3,8 +3,7 @@ import Header from './header/index';
 import Footer from './Footer/index';
 import LeftMenu from "./menu/index";
 import '../styles/index.scss'
-import PathName from '../utils/location'
-import { Row, Col, Button, Affix, Card, notification  } from 'antd'
+import { Row, Col, Button, Card, notification  } from 'antd'
 
 const data = [{
   title: "1",
