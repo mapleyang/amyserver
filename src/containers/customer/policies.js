@@ -15,32 +15,39 @@ const Option = Select.Option;
 const FormItem = Form.Item;
 const InputGroup = Input.Group;
 
-const dataSource = [];
-
 const columns = [{
+  title: '投保单号',
+  dataIndex: 'transactionID',
+  key: 'transactionID',
+}, {
+  title: '保险单号',
+  dataIndex: 'policyID',
+  key: 'policyID',
+}, {
   title: '姓名',
   dataIndex: 'name',
   key: 'name',
 }, {
-  title: '账号',
-  dataIndex: 'number',
-  key: 'number',
+  title: '保单状态',
+  dataIndex: 'transactionState',
+  key: 'transactionState',
 }, {
-  title: '手机',
-  dataIndex: 'phone',
-  key: 'phone',
-},{
-  title: "保单",
-  dataIndex: "policies",
-  key: "policies",
+  title: '数据上传',
+  dataIndex: 'upload',
+  key: 'upload',
+  render: (text, record) => (<a>{text}</a>),
+}, {
+  title: '保单详情',
+  dataIndex: 'detail',
+  key: 'detail',
   render: (text, record) => (<a>查看</a>),
 }];
 
-class Clubber extends Component {
+class Policies extends Component {
   constructor(props, context) {
     super(props)
     this.state = {
-      dataSource: []
+      data: []
     }
   }
 
@@ -48,9 +55,11 @@ class Clubber extends Component {
     let data = [];
     for(let i = 0; i < 10; i++) {
       let item = {
+        transactionID: "00000" + i,
+        policyID: "test00" + i,
         name: "mapple" + i,
-        number: "yzq00" + i,
-        phone: "1833255603" + i
+        upload: i%2 ? "上传" : "已完成",
+        transactionState: i%2 ? "待体检" : "核保中"
       }
       data.push(item);
     }
@@ -58,6 +67,7 @@ class Clubber extends Component {
       dataSource: data
     })
   }
+
 
   searchClick () {}
 
@@ -67,22 +77,22 @@ class Clubber extends Component {
   render() {
     return (
       <div className="clubber">
-        <div className="search">
+                <div className="search">
           <Row>
             <Col span={8}>
               <FormItem
                 labelCol = {{ span: 6 }}
                 wrapperCol = {{ span: 14 }}
-                label="用户姓名">
-                <Input placeholder="请输入用户姓名" />
+                label="投保单号">
+                <Input placeholder="请输入投保单号" />
               </FormItem>
             </Col>
             <Col span={8}>
                <FormItem
                 labelCol = {{ span: 6 }}
                 wrapperCol = {{ span: 14 }}
-                label="用户账号">
-                <Input placeholder="请输入用户账号" />
+                label="保险单号">
+                <Input placeholder="请输入保险单号" />
               </FormItem>
             </Col>
             <Col span={8}>
@@ -101,7 +111,7 @@ class Clubber extends Component {
               <FormItem
                 labelCol = {{ span: 6 }}
                 wrapperCol = {{ span: 14 }}
-                label="用户手机">
+                label="用户姓名">
                 <Input placeholder="请输入用户手机" />
               </FormItem>
             </Col>
@@ -119,5 +129,5 @@ class Clubber extends Component {
   }
 }
 
-export default Clubber = Form.create({
-})(Clubber);
+export default Policies = Form.create({
+})(Policies);

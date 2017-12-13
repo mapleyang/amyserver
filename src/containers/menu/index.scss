@@ -1,5 +1,22 @@
 .left-menu {
+  .ant-menu {
+    background: #fff;
+    border-radius: 5px;
+  }
   .ant-menu-inline, .ant-menu-vertical {
     border: none;
+  }
+  .ant-menu-item {
+    text-align: center;
+    padding-left: 0px!important;
+    left: 0px;
+    margin-left: 0px;
+  }
+  .ant-menu-item-selected:after {
+    content: none;
+    border: none;
+  }
+  .ant-menu-item:hover {
+    background: #ecf6fd;
   }
 }

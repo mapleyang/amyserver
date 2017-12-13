@@ -1,3 +1,17 @@
+@keyframes test {
+  0% {
+    top: 350px;
+  }
+  50% {
+    transform:rotate(120deg);
+    box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    border-color: rgba(0,0,0,.2);
+  }
+  100% {
+    top: 0px;
+  }
+}
+
 html , body {
   font-size: 14px!important;
 }
@@ -8,30 +22,51 @@ html , body {
   }
   .main-content {
     height: inherit;
+    background: #f8f8f9;
+    .content-area {
+      padding: 10px;
+      height: inherit;
+    }
     .main-left-content {
-      float: left;
-      width: 170px;
+      background: #fff;
+      width: 150px;
       height: 100%;
-      .left-menu {
-        margin-top: 50px;
-      }
+      border-radius: 5px;
     }
     .main-right-content {
-      margin-left: 170px;
+      width: 82%;
       height: 100%;
-      overflow-y: auto;
-      border-left: 1px #eee solid;
-      padding-top: 50px;
-      .right-content {
-        margin: 10px;
-        height: inherit;
+    }
+    .block-chain {
+      width: 80px;
+      height: inherit;
+      .block-list {
+        padding-left: 10px;
+        .ant-card {
+          width: 60px;
+          height: 60px;
+          line-height: 60px;
+          margin-left: 10px;
+          background-color: #ecf6fd;
+          margin-bottom: 10px;
+        }
+        .ant-card-body {
+          padding: 0px;
+          text-align: center;
+          p {
+            font-weight: bold;
+          }
+        }
+        .test {
+          top: 350px;
+          animation: test 2s ease-in-out 0s forwards;
+        }
       }
     }
   }
   .main-header {
-    position: fixed;
+    background: #06304B;
     width: 100%;
-    top: 0;
     z-index: 1000;
     -moz-box-shadow: 10px 10px 5px #888888;
     box-shadow: 0px 1px 2px #888888;

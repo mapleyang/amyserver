@@ -41,7 +41,7 @@ class LeftMenu extends Component {
     item = MenuList[this.props.modle].map(el => {
       let ele;
       if(el.children && el.children.length !== 0) {
-        ele = <SubMenu key={el.key} title={<span><Icon type={el.icon} /><span>{el.title}</span></span>}>
+        ele = <SubMenu key={el.key} title={el.title}>
           {this.getSubMenuList(el.children)}
         </SubMenu>
       }

@@ -44,7 +44,6 @@ class Home extends Component {
   }
 
   render() {
-    const defaultZH_EN = window.ZH_EN[language.getLanguage()];
     return (
       <div className="home">
         <div className="header-logo">

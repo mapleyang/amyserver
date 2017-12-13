@@ -2,23 +2,59 @@ import React, { Component } from 'react'
 import Header from './header/index';
 import Footer from './Footer/index';
 import LeftMenu from "./menu/index";
-import '../styles/theme.scss'
 import '../styles/index.scss'
 import PathName from '../utils/location'
+import { Row, Col, Button, Affix, Card, notification  } from 'antd'
+
+const data = [{
+  title: "1",
+  classname: "normal"
+},{
+  title: "2",
+  classname: "normal"
+},{
+  title: "3",
+  classname: "normal"
+},{
+  title: "4",
+  classname: "normal"
+}]
+
 export default class App extends Component {
 
   constructor(props, context) {
     super(props)
     this.state = {
       pathname: "",
-      modle: "customerService"
+      modle: "customerService",
+      data: data,
     }
   }
 
   componentWillMount () {
-    if(!sessionStorage.getItem("userInfo")) {
-      location.hash = "/login"
-    }
+    // if(!sessionStorage.getItem("userInfo")) {
+    //   location.hash = "/login"
+    // }
+  }
+
+  componentDidMount () {
+    this.getNewBlock()
+  }
+
+  //区块生成
+  getNewBlock () {
+    let _this = this;
+    setInterval(function () {
+      let data = _this.state.data
+      let item = {
+        title: _this.state.data.length + 1,
+        classname: "test"
+      }
+      data.push(item);
+      _this.setState({
+        data: data
+      })
+    }, 4000)
   }
 
   getHeader () {
@@ -33,23 +69,38 @@ export default class App extends Component {
     })
   }
 
+  cardClick (value) {
+    notification.open({
+      message: "第" + value.title + "个区块信息",
+      description: 'This is the content of the current block. This is the content of the current block. This is the content of the current block.',
+    });
+  }
+
   getLeftArea () {
     let item;
-    if(PathName.getPathName("#/login") || PathName.getPathName("#/home")) {
-      item = <div className="main-full-content">
-        {this.props.children}
-      </div>
-    }
-    else {
-      item = <div className="main-content">
-        <div className="main-left-content">
+    item = <div className="main-content">
+      <Row className="content-area">
+        <Col span={4} className="main-left-content">
           <LeftMenu modle={this.state.modle} />
-        </div>
-        <div className="main-right-content">
+        </Col>
+        <Col span={16} className="main-right-content">
           {this.props.children}
-        </div>
-      </div>
-    }
+        </Col>
+        <Col span={2} className="block-chain">
+          <div className="block-list">
+            {this.state.data.map((el, index) => {
+              let item = "";
+              if ((this.state.data.length - index) < 6) {
+                item = <Card className={el.classname} onClick={this.cardClick.bind(this, el)}>
+                  <p>{el.title}</p>
+                </Card>
+              }
+              return item
+            })}
+          </div>
+        </Col>
+      </Row>
+    </div>
     return item;
   }
 

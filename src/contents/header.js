@@ -14,28 +14,12 @@ const header = {
   //   value: "analysis"
   // },{
   //   label: "权限管理",
-  //   value: "authority"
+    //   value: "authority"
   // },{
   //   label: "服务管理",
   //   value: "serviceManager"
   // },
-    {
-      label: "客服操作",
-      value: "customerService"
-    },
-    // {
-    //   label: "网站管理",
-    //   value: "siteManager"
-    // }
   ],
-  userMenu: [{
-    label: "客服",
-    value: "customerService"
-  }],
-  project: [{
-    label: "网站配置",
-    value: "siteManager"
-  }]
 }
 
 export default header;

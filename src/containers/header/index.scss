@@ -1,6 +1,5 @@
 .header-area {
-	background-color: #0C5B79;
-	height: 50px;
+	height: 70px;
 	.header-row-menu {
     position: relative;
 	}
@@ -8,8 +7,6 @@
     height: 50px;
 		ul {
       height: inherit;
-			background-color: #0C5B79;
-			border-bottom: 1px solid #0C5B79;
 			li {
         height: inherit;
         line-height: 50px;
@@ -24,57 +21,53 @@
       .ant-menu-item-selected {
         border-bottom: none;
         color: #fff;
-        background: rgba(33,74,89,1);
+        background: #1890ff;
       }
 		}
 	}
 	.header-logo {
+    line-height: 70px;
+    color: #fff;
+    .logo-line {
+      width: 1px;
+      height: 30px;
+      background: #449A99;
+      display: inline-block;
+    }
     img {
-  		margin-top: 10px;
-  		margin-left: 20px;
-      float: left;
+      right: 20px;
+      width: 50px;
+  		position: relative;
+      top: 10px;
   	}
   }
 	.header-name {
-		margin-top: 12px;
 		span {
-	    color: #fff;
-	    font-size: 18px;
+	    font-size: 26px;
 	    font-weight: bold;
 	    font-family: cursive;
-	    padding-left: 5px;
+	    padding-left: 20px;
+      color: #449A99;
 		}
 	}
-	.user-login {
-		margin-top: 14px;
-		color: #fff;
-		cursor: pointer;
-		font-size: 14px;
-	}
-	.language-setting {
-    margin-top: 12px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    width: 40px;
-    text-align: center;
-    border: 1px #fff solid;
-    line-height: 20px;
-    border-radius: 2px;
-	}
-  .user-image {
-    width: 30px;
-    height: 30px;
-    margin-top: 10px;
-    img {
-      height: 100%;
-      width: 100%;
-      border-radius: 100px;
+  .input-area {
+    input {
+      background: #06304b;
+      position: relative;
+      top: 22px;
+      border: none;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      color: #fff;
     }
   }
-  .ant-menu:not(.ant-menu-horizontal) {
-    .ant-menu-item-selected {
-      background-color: rgba(55,55,55,.6)!important;
+  .user-area {
+    text-align: center;
+    img {
+      width: 40px;
+      border-radius: 100px;
+      position: relative;
+      top: 15px;
     }
   }
 }

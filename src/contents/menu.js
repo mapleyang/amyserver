@@ -61,27 +61,13 @@ const MenuList = {
     icon: "appstore",
     title: "用户信息"
   },{
-    key: "clubberlogin",
+    key: "policies",
     icon: "appstore",
-    title: "用户登陆"
+    title: "保单信息"
   },{
-    key: "reserve",
+    key: "blockoperate",
     icon: "appstore",
-    title: "预约改约"
-  },
-  // {
-  //   key: "reserveexport",
-  //   icon: "appstore",
-  //   title: "预约导出"
-  // },
-  {
-    key: "orgresimport",
-    icon: "appstore",
-    title: "排期名额导入"
-  },{
-    key: "orgreschange",
-    icon: "appstore",
-    title: "排期名额修改"
+    title: "区块链操作"
   }],
 }
 

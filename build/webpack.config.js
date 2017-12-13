@@ -5,7 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const config = require('../config')
 const pxtorem = require('postcss-pxtorem')
 const debug = require('debug')('app:webpack:config')
-const fs = require('fs')
 
 const paths = config.utils_paths
 const __DEV__ = config.globals.__DEV__
@@ -22,30 +21,7 @@ const webpackConfig = {
     extensions: ['', '.web.js', '.js', '.jsx', '.json']
   },
   module: {},
-  postcss: [],
-}
-
-if (!__DEV__) {
-  fs.unlink('D:/Development/workspace/chealth/WebContent/js/background/app.js', function (err) {
-      if (err){
-        console.log(err);
-      } 
-      console.log('文件删除成功');
-  })
-
-  fs.unlink('D:/Development/workspace/chealth/WebContent/js/background/vendor.js', function (err) {
-      if (err){
-        console.log(err);
-      } 
-      console.log('文件删除成功');
-  })
-
-  fs.unlink('D:/Development/workspace/chealth/WebContent/css/background/app.css', function (err) {
-      if (err){
-        console.log(err);
-      } 
-      console.log('文件删除成功');
-  })
+  postcss: []
 }
 
 const APP_ENTRY = paths.client('main.js')
@@ -58,12 +34,9 @@ webpackConfig.entry = {
 }
 
 webpackConfig.output = {
-  // filename: `js/[name].js`,
-  filename: `js/background/[name].js`,
-  chunkFilename: 'js/background/[name].js',
-  // chunkFilename: 'js/[name].js',
-  path: "D:/Development/workspace/chealth/WebContent/",
-  // path: paths.dist(),
+  filename: `js/[name].js`,
+  chunkFilename: 'js/[name].js',
+  path: paths.dist(),
   publicPath: config.compiler_public_path
 }
 
@@ -84,7 +57,7 @@ webpackConfig.plugins = [
   new HtmlWebpackPlugin({
     template: paths.client('index.html'),
     hash: false,
-    // favicon: paths.client('static/favicon.ico'),
+    favicon: paths.client('static/favicon.ico'),
     filename: viewName,
     inject: 'body',
     minify: {
@@ -209,8 +182,7 @@ if (!__DEV__) {
   })
 
   webpackConfig.plugins.push(
-    // new ExtractTextPlugin('css/[contenthash].css', {
-    new ExtractTextPlugin('css/background/app.css', {
+    new ExtractTextPlugin('css/app.css', {
       allChunks: true
     })
   )
