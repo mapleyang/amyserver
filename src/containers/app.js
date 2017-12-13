@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Header from './header/index';
-import Footer from './Footer/index';
 import LeftMenu from "./menu/index";
 import '../styles/index.scss'
 import { Row, Col, Button, Card, notification  } from 'antd'
