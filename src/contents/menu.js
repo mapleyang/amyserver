@@ -68,6 +68,10 @@ const MenuList = {
     key: "blockoperate",
     icon: "appstore",
     title: "区块链操作"
+  },{
+    key: "userdata",
+    icon: "appstore",
+    title: "数据资产"
   }],
 }
 
